@@ -61,6 +61,34 @@ class Wolf : Canine() {
   }
 }
 
+class Vet {
+  fun giveShot(animal: Animal) {
+    // Code to do something ,edical
+    animal.makeNoise()
+  }
+}
+
 fun main() {
-  println("Hello")
+  val animals = arrayOf(Hippo(),
+                        Wolf())
+  for (animal in animals) {
+    animal.roam()
+    animal.eat()
+  }
+
+  val vet = Vet()
+  val wolf = Wolf()
+  val hippo = Hippo()
+  vet.giveShot(wolf)
+  vet.giveShot(hippo)
+
+  val roamables = arrayOf(Hippo(),
+                          Wolf(),
+                          Vehicle())
+  for (roam in roamables) {
+    roam.roam()
+    if (roam is Animal) {
+      roam.eat()
+    }
+  }
 }
